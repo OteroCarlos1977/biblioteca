@@ -4,9 +4,10 @@ Aplicacion modular de biblioteca construida con React, Vite, Node.js y Express. 
 
 ## URLs
 
-- Frontend publicado: https://oterocarlos1977.github.io/biblioteca/
-- Backend publicado: https://biblioteca-backend-blond.vercel.app
-- API base publicada: `https://biblioteca-backend-blond.vercel.app/api`
+- App completa en Vercel: https://biblioteca-gilt-seven.vercel.app/
+- API en el mismo dominio: `https://biblioteca-gilt-seven.vercel.app/api`
+- Frontend alternativo en GitHub Pages: https://oterocarlos1977.github.io/biblioteca/
+- Backend Vercel separado, mantenido como referencia: https://biblioteca-backend-blond.vercel.app
 - Repositorio: https://github.com/OteroCarlos1977/biblioteca
 
 En local:
@@ -22,8 +23,8 @@ Frontend: http://127.0.0.1:5173
 - Backend: Node.js, Express y CORS.
 - Base de datos local por defecto: datos hardcodeados en memoria.
 - Base de datos real disponible: Firebase Firestore con `firebase-admin`.
-- Despliegue frontend: GitHub Pages.
-- Despliegue backend: Vercel.
+- Despliegue principal: Vercel con frontend y backend en el mismo proyecto.
+- Despliegue alternativo: GitHub Pages para frontend y Vercel para backend.
 
 ## Datos
 
@@ -236,6 +237,17 @@ npm run seed:firebase
 El archivo JSON de Firebase no debe subirse al repositorio. En produccion se usa la variable `FIREBASE_SERVICE_ACCOUNT_JSON` configurada como secreto del hosting.
 
 ## Despliegue
+
+### App completa en Vercel
+
+La raiz del proyecto incluye `vercel.json` para publicar la aplicacion completa:
+
+```txt
+/          -> frontend React
+/api/*     -> backend Express
+```
+
+En este modo, el frontend usa `/api` como URL relativa y no necesita una variable `VITE_API_URL`.
 
 ### Frontend en GitHub Pages
 

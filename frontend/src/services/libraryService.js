@@ -1,6 +1,6 @@
 // Service del frontend: concentra fetch y URLs.
 // Si cambia el puerto o la ruta del backend, se modifica aca y no en los componentes.
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5010/api';
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:5010/api');
 
 // Todas las respuestas pasan por este helper para que los componentes no
 // repitan la misma validacion de response.ok.
