@@ -56,7 +56,7 @@ export const LibraryPage = () => {
 
   const openBookHistory = (book) => {
     // Abrir un libro dispara una consulta puntual de disponibilidad actual.
-    // El historial sale de loans ya cargado en memoria del frontend.
+    // El historial sale del estado loans ya cargado desde el backend.
     setSelectedBook(book);
     setSelectedBookAvailability(null);
     checkSelectedBookAvailability(book.id);
@@ -86,7 +86,7 @@ export const LibraryPage = () => {
         <div>
           <p className="text-uppercase text-primary fw-bold mb-1">Biblioteca</p>
           <h1 className="display-5 fw-bold">Gestion modular de catalogo y usuarios</h1>
-          <p className="lead mb-0">Datos hardcodeados servidos desde Node y consumidos por React.</p>
+          <p className="lead mb-0">Datos persistidos en Firebase Firestore y servidos desde Node/Express.</p>
         </div>
 
         <div className="theme-actions">

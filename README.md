@@ -1,6 +1,6 @@
 # Biblioteca
 
-Aplicacion modular de biblioteca construida con React, Vite, Node.js y Express. El proyecto nacio como ejemplo educativo con datos hardcodeados y luego incorporo Firebase Firestore como base de datos real, manteniendo la misma estructura de capas.
+Aplicacion modular de biblioteca construida con React, Vite, Node.js y Express. La version publicada trabaja con Firebase Firestore como base de datos real. El proyecto conserva un proveedor hardcoded para clases, pruebas locales o comparacion pedagogica de capas.
 
 ## URLs
 
@@ -21,8 +21,8 @@ Frontend: http://127.0.0.1:5173
 
 - Frontend: React, Vite, React-Bootstrap, Bootstrap y Sileo.
 - Backend: Node.js, Express y CORS.
-- Base de datos local por defecto: datos hardcodeados en memoria.
-- Base de datos real disponible: Firebase Firestore con `firebase-admin`.
+- Base de datos usada en produccion: Firebase Firestore con `firebase-admin`.
+- Base alternativa para desarrollo/clase: datos hardcodeados en memoria.
 - Despliegue principal: Vercel con frontend y backend en el mismo proyecto.
 - Despliegue alternativo: GitHub Pages para frontend y Vercel para backend.
 
@@ -90,7 +90,8 @@ Componente React
   -> Route
   -> Controller
   -> database/index.js
-  -> hardcodedDatabase.js o firebaseConnection.js
+  -> firebaseConnection.js en produccion
+  -> hardcodedDatabase.js en modo local alternativo
   -> respuesta JSON
   -> React actualiza pantalla
 ```
@@ -163,16 +164,16 @@ GET /api/loans?userId=4
 
 ## Base de datos
 
-El backend selecciona proveedor con:
-
-```txt
-DB_PROVIDER=hardcoded
-```
-
-o:
+En produccion el backend usa Firebase:
 
 ```txt
 DB_PROVIDER=firebase
+```
+
+Para pruebas locales sin base externa, el backend tambien puede usar el proveedor hardcoded:
+
+```txt
+DB_PROVIDER=hardcoded
 ```
 
 Los adaptadores deben respetar esta interfaz:
