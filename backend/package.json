@@ -1,0 +1,24 @@
+{
+  "name": "biblioteca-backend",
+  "version": "1.0.0",
+  "description": "Backend modular para biblioteca con datos hardcodeados",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "seed:firebase": "node scripts/seedFirebase.js",
+    "check": "node --check server.js && node --check src/controllers/booksController.js && node --check src/controllers/usersController.js && node --check src/controllers/loansController.js && node --check src/routes/booksRoutes.js && node --check src/routes/usersRoutes.js && node --check src/routes/loansRoutes.js && node --check src/database/index.js && node --check src/database/firebaseConnection.js && node --check scripts/seedFirebase.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

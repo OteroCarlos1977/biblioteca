@@ -1,0 +1,26 @@
+# Dependencias instaladas localmente.
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Builds generados.
+dist/
+frontend/dist/
+
+# Variables de entorno y credenciales privadas.
+.env
+.env.*
+backend/.env
+frontend/.env
+!.env.example
+!backend/.env.example
+!frontend/.env.example
+*.pem
+*serviceAccount*.json
+serviceAccountKey.json
+
+# Logs y archivos temporales.
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
