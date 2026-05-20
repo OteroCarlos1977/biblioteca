@@ -27,6 +27,12 @@ app.use('/api/books', booksRoutes);
 app.use('/api/users', usersRoutes);
 app.use('/api/loans', loansRoutes);
 
-app.listen(PORT, () => {
-  console.log(`Servidor biblioteca corriendo en http://localhost:${PORT}`);
-});
+// En local ejecutamos app.listen(). En Vercel, el runtime serverless importa
+// esta app y administra el servidor por su cuenta.
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Servidor biblioteca corriendo en http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;

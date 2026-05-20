@@ -6,6 +6,9 @@ frontend/node_modules/
 # Builds generados.
 dist/
 frontend/dist/
+.vercel/
+backend/.vercel/
+frontend/.vercel/
 
 # Variables de entorno y credenciales privadas.
 .env
