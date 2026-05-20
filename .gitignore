@@ -9,6 +9,7 @@ frontend/dist/
 .vercel/
 backend/.vercel/
 frontend/.vercel/
+.playwright-cli/
 
 # Variables de entorno y credenciales privadas.
 .env

@@ -1,6 +1,23 @@
 // Service del frontend: concentra fetch y URLs.
 // Si cambia el puerto o la ruta del backend, se modifica aca y no en los componentes.
-const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:5010/api');
+const LOCAL_API_URL = 'http://localhost:5010/api';
+
+const getApiUrl = () => {
+  const configuredUrl = import.meta.env.VITE_API_URL;
+  const currentHost = typeof window !== 'undefined' ? window.location.hostname : '';
+  const isLocalHost = currentHost === 'localhost' || currentHost === '127.0.0.1';
+
+  // En despliegues publicos la API vive en el mismo dominio bajo /api.
+  // Si alguna variable de build queda apuntando a localhost, la ignoramos
+  // para evitar que el navegador del usuario intente llamar a su propia PC.
+  if (!isLocalHost) {
+    return configuredUrl && !configuredUrl.includes('localhost') ? configuredUrl : '/api';
+  }
+
+  return configuredUrl || LOCAL_API_URL;
+};
+
+const API_URL = getApiUrl();
 
 // Todas las respuestas pasan por este helper para que los componentes no
 // repitan la misma validacion de response.ok.
