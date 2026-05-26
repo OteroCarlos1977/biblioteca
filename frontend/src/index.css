@@ -33,6 +33,40 @@ body[data-theme='dark'] {
   color: inherit;
 }
 
+.developer-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0 1rem 2rem;
+  color: #5f6f82;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.developer-footer-mark {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(13, 110, 253, 0.22);
+  border-radius: 0.5rem;
+  display: inline-grid;
+  place-items: center;
+  color: #0d6efd;
+  background: rgba(13, 110, 253, 0.08);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+body[data-theme='dark'] .developer-footer {
+  color: #aab6c5;
+}
+
+body[data-theme='dark'] .developer-footer-mark {
+  border-color: rgba(91, 141, 239, 0.3);
+  color: #b8cffd;
+  background: rgba(91, 141, 239, 0.14);
+}
+
 .theme-actions {
   display: flex;
   align-items: flex-start;
